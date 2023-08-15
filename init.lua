@@ -49,6 +49,6 @@ local plugins = require("plugins")
 require("lazy").setup(plugins)
 
 vim.cmd.colorscheme "catppuccin"
-opt.background = "dark"
+opt.background = "light"
 
 require("mappings")

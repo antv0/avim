@@ -15,6 +15,16 @@ vim.keymap.set(
   "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>"
 )
 vim.keymap.set('n', '<leader>ft', MiniFiles.open, { desc = "Open file tree" })
+-- vim.api.nvim_set_keymap('v', 'f', '<Plug>SnipRun', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>SnipRunOperator', {silent = true})
+-- vim.api.nvim_set_keymap('n', '<leader>ff', '<Plug>SnipRun', {silent = true})
+vim.keymap.set('n', '<leader>rr', ":SnipRun<cr>", { desc = "Run line" })
+vim.keymap.set('v', '<leader>r', ":SnipRun<cr>", { desc = "Run selection" })
+
+vim.keymap.set({'n', 'v', 'o'}, '<a-h>', require('tree-climber').goto_parent)
+vim.keymap.set({'n', 'v', 'o'}, '<a-l>', require('tree-climber').goto_child)
+vim.keymap.set({'n', 'v', 'o'}, '<a-j>', require('tree-climber').goto_next)
+vim.keymap.set({'n', 'v', 'o'}, '<a-k>', require('tree-climber').goto_prev)
 
 
 -- Global mappings.
