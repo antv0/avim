@@ -12,6 +12,11 @@ vim.keymap.set('n', 'H', require('treesj').toggle)
 vim.keymap.set(
   'n',
   '<leader>ff',
+  "<cmd> Telescope find_files follow=true no_ignore=true <CR>"
+)
+vim.keymap.set(
+  'n',
+  '<leader>fF',
   "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>"
 )
 vim.keymap.set('n', '<leader>ft', MiniFiles.open, { desc = "Open file tree" })
@@ -25,7 +30,7 @@ vim.keymap.set({'n', 'v', 'o'}, '<a-h>', require('tree-climber').goto_parent)
 vim.keymap.set({'n', 'v', 'o'}, '<a-l>', require('tree-climber').goto_child)
 vim.keymap.set({'n', 'v', 'o'}, '<a-j>', require('tree-climber').goto_next)
 vim.keymap.set({'n', 'v', 'o'}, '<a-k>', require('tree-climber').goto_prev)
-
+vim.keymap.set('n', '<leader>N', "<cmd> Neogit <cr>", { desc = "Open Neogit" })
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

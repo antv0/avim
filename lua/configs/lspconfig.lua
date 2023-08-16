@@ -2,7 +2,7 @@ require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
-  function (server_name) -- default handler (optional)
+  function(server_name)  -- default handler (optional)
     require("lspconfig")[server_name].setup {}
   end,
   -- Next, you can provide a dedicated handler for specific servers.
@@ -10,7 +10,7 @@ require("mason-lspconfig").setup_handlers {
   -- ["rust_analyzer"] = function ()
   --   require("rust-tools").setup {}
   -- end
-  ["lua_ls"] = function ()
+  ["lua_ls"] = function()
     require("lspconfig").lua_ls.setup {
       settings = {
         Lua = {
@@ -29,6 +29,25 @@ require("mason-lspconfig").setup_handlers {
           },
         },
       },
+    }
+  end,
+
+  ["ltex"] = function()
+    require("lspconfig").ltex.setup {
+      settings = {
+        ltex = {
+          language = "fr-FR",
+        },
+        -- set formatter
+        formatters = {
+          ["latexindent"] = {
+            exe = "latexindent",
+            args = { "-sl", "-g /dev/stderr" },
+            stdin = true,
+          },
+        },
+      },
+
     }
   end
 }

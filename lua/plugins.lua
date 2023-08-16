@@ -68,6 +68,8 @@ local plugins = {
           treesitter = true,
           mini = true,
           mason = true,
+          neogit = true,
+          illuminate = false,
           telescope = {
             enabled = true,
             style = "nvchad"
@@ -142,16 +144,15 @@ local plugins = {
   },
   {
     "zbirenbaum/copilot.lua",
-    cmd = { "Copilot", "StartCopilot" },
+    cmd = { "Copilot" },
     opts = {
       suggestion = {
         auto_trigger = true,
-      }
+      },
+      filetypes = {
+        markdown = true,
+      },
     },
-    config = function()
-      require("copilot").setup()
-      vim.cmd("command! StartCopilot Copilot suggestion")
-    end,
   },
   {
     'nvim-lualine/lualine.nvim',
@@ -292,7 +293,14 @@ local plugins = {
     event = "VeryLazy",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
-      require("wildfire").setup()
+      require("wildfire").setup({
+        keymaps = {
+          init_selection = "<space>",
+          node_incremental = "<space>",
+          node_decremental = "<c-space>",
+        }
+      }
+      )
     end,
   },
   { "lukas-reineke/indent-blankline.nvim" },
@@ -317,12 +325,14 @@ local plugins = {
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",       -- required
+      "nvim-lua/plenary.nvim",         -- required
       "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim",      -- optional
+      "sindrets/diffview.nvim",        -- optional
     },
     config = true
-  }
+  },
+  { "RRethy/vim-illuminate" },
+  { "ofseed/lualine-copilot" }
 }
 
 return plugins
