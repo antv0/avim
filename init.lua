@@ -52,3 +52,12 @@ vim.cmd.colorscheme "catppuccin"
 opt.background = "light"
 
 require("mappings")
+
+camenu = require("camenu")
+-- bind right click to open camenu
+vim.keymap.set("n", "<RightMouse>", "<LeftMouse>:lua require('camenu').calistener()<CR>")
+-- vim.keymap.set(
+--   "n",
+--   "<RightRelease>",
+--   camenu.calistener
+-- )
