@@ -333,7 +333,17 @@ local plugins = {
     },
     config = true
   },
-  { "RRethy/vim-illuminate" },
+  {
+    "RRethy/vim-illuminate",
+    config = function()
+      require('illuminate').configure({
+        providers = {
+          'lsp',
+        },
+        delay = 100,
+      })
+    end
+  },
   { "ofseed/lualine-copilot" },
   {
     "folke/noice.nvim",
