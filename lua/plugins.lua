@@ -323,7 +323,6 @@ local plugins = {
       })
     end
   },
-  { "drybalka/tree-climber.nvim" },
   {
     "NeogitOrg/neogit",
     dependencies = {

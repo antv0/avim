@@ -26,10 +26,6 @@ vim.keymap.set('n', '<leader>ft', MiniFiles.open, { desc = "Open file tree" })
 vim.keymap.set('n', '<leader>rr', ":SnipRun<cr>", { desc = "Run line" })
 vim.keymap.set('v', '<leader>r', ":SnipRun<cr>", { desc = "Run selection" })
 
-vim.keymap.set({'n', 'v', 'o'}, '<a-h>', require('tree-climber').goto_parent)
-vim.keymap.set({'n', 'v', 'o'}, '<a-l>', require('tree-climber').goto_child)
-vim.keymap.set({'n', 'v', 'o'}, '<a-j>', require('tree-climber').goto_next)
-vim.keymap.set({'n', 'v', 'o'}, '<a-k>', require('tree-climber').goto_prev)
 vim.keymap.set('n', '<leader>N', "<cmd> Neogit <cr>", { desc = "Open Neogit" })
 vim.keymap.set('n', '<a-f1>', "<cmd> Copilot <cr>", { desc = "Start Copilot" })
 
