@@ -12,7 +12,7 @@ vim.keymap.set('n', 'H', require('treesj').toggle)
 vim.keymap.set(
   'n',
   '<leader>ff',
-  "<cmd> Telescope find_files follow=true no_ignore=true <CR>"
+  "<cmd> Telescope find_files follow=true <CR>"
 )
 vim.keymap.set(
   'n',
