@@ -16,7 +16,7 @@ local plugins = {
   {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
-      "williamboman/mason.nvim"
+      "williamboman/mason.nvim",
     },
     config = function()
       require("mason").setup()
@@ -350,11 +350,11 @@ local plugins = {
     event = "VeryLazy",
     opts = {
       messages = {
-        view = "mini",         -- default view for messages
-        view_error = "notify",   -- view for errors
-        view_warn = "notify",    -- view for warnings
+        view = "mini",             -- default view for messages
+        view_error = "notify",     -- view for errors
+        view_warn = "notify",      -- view for warnings
         view_history = "messages", -- view for :messages
-        view_search = "mini", -- view for search count messages. Set to `false` to disable
+        view_search = "mini",      -- view for search count messages. Set to `false` to disable
       },
       cmdline = {
         view = "cmdline",
