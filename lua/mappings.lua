@@ -31,6 +31,7 @@ vim.keymap.set({'n', 'v', 'o'}, '<a-l>', require('tree-climber').goto_child)
 vim.keymap.set({'n', 'v', 'o'}, '<a-j>', require('tree-climber').goto_next)
 vim.keymap.set({'n', 'v', 'o'}, '<a-k>', require('tree-climber').goto_prev)
 vim.keymap.set('n', '<leader>N', "<cmd> Neogit <cr>", { desc = "Open Neogit" })
+vim.keymap.set('n', '<a-f1>', "<cmd> Copilot <cr>", { desc = "Start Copilot" })
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
