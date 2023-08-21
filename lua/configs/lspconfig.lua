@@ -37,6 +37,7 @@ require("mason-lspconfig").setup_handlers {
       settings = {
         ltex = {
           language = "fr",
+          checkFrequency = "save"
         },
         -- set formatter
         formatters = {
