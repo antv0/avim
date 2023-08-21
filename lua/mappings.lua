@@ -28,6 +28,7 @@ vim.keymap.set('v', '<leader>r', ":SnipRun<cr>", { desc = "Run selection" })
 
 vim.keymap.set('n', '<leader>N', "<cmd> Neogit <cr>", { desc = "Open Neogit" })
 vim.keymap.set('n', '<a-f1>', "<cmd> Copilot <cr>", { desc = "Start Copilot" })
+vim.keymap.set('x', 'p', 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Start Copilot" })
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
