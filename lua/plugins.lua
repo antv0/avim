@@ -135,13 +135,13 @@ local plugins = {
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
+
+        "L3MON4D3/LuaSnip",
+        'saadparwaiz1/cmp_luasnip'
       },
     },
     opts = function()
       return require "configs.cmp"
-    end,
-    config = function(_, opts)
-      require("cmp").setup(opts)
     end,
   },
   {

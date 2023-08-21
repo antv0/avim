@@ -1,6 +1,13 @@
 local cmp = require "cmp"
 
 local options = {
+
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    end,
+  },
+
   completion = {
     completeopt = 'menu,menuone,noinsert,noselect'
   },
