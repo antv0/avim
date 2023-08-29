@@ -41,7 +41,9 @@ opt.textwidth = 100
 opt.timeoutlen = 1000
 opt.breakindent = true
 
-
+opt.foldmethod = "expr"
+opt.foldlevelstart = 99
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 require("bootstrap")
 
