@@ -8,6 +8,7 @@ vim.keymap.set("n", "<leader>x", "<cmd> bdelete <CR>", { desc = "Delete buffer" 
 vim.keymap.set("n", "<Tab>", "<cmd> bn <CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd> bp <CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "ZZ", "<cmd> q! <CR>", { desc = "Quit without saving" })
+vim.keymap.set("n", "q:", "<nop>")
 vim.keymap.set('n', 'H', require('treesj').toggle)
 vim.keymap.set(
   'n',
