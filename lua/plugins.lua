@@ -70,7 +70,7 @@ local plugins = {
           mason = true,
           neogit = true,
           illuminate = false,
-          noice = true,
+          -- noice = true,
           notify = true,
           telescope = {
             enabled = true,
@@ -345,45 +345,45 @@ local plugins = {
     end
   },
   { "ofseed/lualine-copilot" },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      messages = {
-        view = "mini",             -- default view for messages
-        view_error = "notify",     -- view for errors
-        view_warn = "notify",      -- view for warnings
-        view_history = "messages", -- view for :messages
-        view_search = "mini",      -- view for search count messages. Set to `false` to disable
-      },
-      cmdline = {
-        view = "cmdline",
-      },
-      views = {
-        lsp = {
-          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-        },
-      },
-      presets = {
-        -- you can enable a preset by setting it to true, or a table that will override the preset config
-        -- you can also add custom presets that you can enable/disable with enabled=true
-        bottom_search = true, -- use a classic bottom cmdline for search
-      },
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    }
-  },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     messages = {
+  --       view = "mini",             -- default view for messages
+  --       view_error = "notify",     -- view for errors
+  --       view_warn = "notify",      -- view for warnings
+  --       view_history = "messages", -- view for :messages
+  --       view_search = "mini",      -- view for search count messages. Set to `false` to disable
+  --     },
+  --     cmdline = {
+  --       view = "cmdline",
+  --     },
+  --     views = {
+  --       lsp = {
+  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true,
+  --         },
+  --       },
+  --     },
+  --     presets = {
+  --       -- you can enable a preset by setting it to true, or a table that will override the preset config
+  --       -- you can also add custom presets that you can enable/disable with enabled=true
+  --       bottom_search = true, -- use a classic bottom cmdline for search
+  --     },
+  --   },
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     "MunifTanjim/nui.nvim",
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     "rcarriga/nvim-notify",
+  --   }
+  -- },
   {
     "rcarriga/nvim-notify",
     opts = {

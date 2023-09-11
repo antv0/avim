@@ -22,10 +22,10 @@ local opts = {
     lualine_b = { 'branch', 'diff' },
     lualine_c = {
       'filename',
-      {
-        require("noice").api.status.mode.get,
-        cond = require("noice").api.status.mode.has,
-      },
+      -- {
+      --   require("noice").api.status.mode.get,
+      --   cond = require("noice").api.status.mode.has,
+      -- },
     },
     lualine_x = { 'diagnostics', 'filetype' },
     lualine_y = { 'progress' },
