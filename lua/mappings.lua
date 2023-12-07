@@ -17,6 +17,11 @@ vim.keymap.set(
 )
 vim.keymap.set(
   'n',
+  '<leader>fg',
+  "<cmd> Telescope live_grep <CR>"
+)
+vim.keymap.set(
+  'n',
   '<leader>fF',
   "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>"
 )
@@ -30,6 +35,15 @@ vim.keymap.set('v', '<leader>r', ":SnipRun<cr>", { desc = "Run selection" })
 vim.keymap.set('n', '<leader>N', "<cmd> Neogit <cr>", { desc = "Open Neogit" })
 vim.keymap.set('n', '<a-f1>', "<cmd> Copilot <cr>", { desc = "Start Copilot" })
 vim.keymap.set('x', 'p', 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Start Copilot" })
+
+-- Luasnip
+local ls = require("luasnip")
+vim.keymap.set({"i", "s"}, "<A-j>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<A-k>", function() ls.jump(-1) end, {silent = true})
+
+-- Hop
+vim.keymap.set({'n', 'v'}, 'f', "<cmd> HopWord <cr>", { desc = "HopWord" })
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

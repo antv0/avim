@@ -13,16 +13,17 @@ local plugins = {
       require('configs.treesitter')
     end,
   },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-    },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-    end
-  },
+  -- {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   dependencies = {
+  --     "williamboman/mason.nvim",
+  --   },
+  --   config = function()
+  --     require("mason").setup()
+  --     require("mason-lspconfig").setup()
+  --     --
+  --   end
+  -- },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -60,7 +61,13 @@ local plugins = {
             crust = "#000000",
           },
         },
-        custom_highlights = {},
+        custom_highlights = function(C)
+          return {
+            HopNextKey = { bg = C.text, fg = C.base, style = { "bold", "underline" } },
+            HopNextKey1 = { bg = C.text, fg = C.base, style = { "bold" } },
+            HopNextKey2 = { bg = C.text, fg = C.base, style = { "bold", "italic" } },
+          }
+        end,
         integrations = {
           cmp = true,
           gitsigns = true,
@@ -72,6 +79,7 @@ local plugins = {
           illuminate = false,
           -- noice = true,
           notify = true,
+          flash = true,
           telescope = {
             enabled = true,
             style = "nvchad"
@@ -79,6 +87,9 @@ local plugins = {
           dap = {
             enabled = true,
             enable_ui = true, -- enable nvim-dap-ui
+          },
+          indent_blankline = {
+            enabled = true,
           },
           native_lsp = {
             enabled = true,
@@ -136,7 +147,16 @@ local plugins = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
 
-        "L3MON4D3/LuaSnip",
+        {
+          "L3MON4D3/LuaSnip",
+          dependencies = {
+            "rafamadriz/friendly-snippets",
+          },
+          init = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+          end
+
+        },
         'saadparwaiz1/cmp_luasnip'
       },
     },
@@ -306,7 +326,16 @@ local plugins = {
       )
     end,
   },
-  { "lukas-reineke/indent-blankline.nvim" },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+      scope = {
+        show_start = false,
+        show_end = false,
+      },
+    },
+  },
   {
     'michaelb/sniprun',
     -- run = 'sh ./install.sh',
@@ -390,7 +419,18 @@ local plugins = {
       render = "minimal",
       stages = "static",
     }
-  }
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+  },
+  {
+    'smoka7/hop.nvim',
+    version = "*",
+    opts = {
+      uppercase_labels = true,
+    },
+  },
 }
 
 return plugins
