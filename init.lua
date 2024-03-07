@@ -51,7 +51,14 @@ local plugins = require("plugins")
 require("lazy").setup(plugins)
 
 vim.cmd.colorscheme "catppuccin"
-opt.background = "light"
+
+-- if $XDG_STATE_HOME/darkmode exists, set dark background, light other wise
+local path = ( vim.fn.getenv("XDG_STATE_HOME") or "~/.local/state" ) .. "/darkmode"
+if vim.fn.filereadable(path) == 1 then
+  opt.background = "dark"
+else
+  opt.background = "light"
+end
 
 require("mappings")
 
