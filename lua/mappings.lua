@@ -1,3 +1,5 @@
+local telescope = require("telescope.builtin")
+
 vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left" })
 vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move right" })
 vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down" })
@@ -34,7 +36,8 @@ vim.keymap.set('v', '<leader>r', ":SnipRun<cr>", { desc = "Run selection" })
 
 vim.keymap.set('n', '<leader>N', "<cmd> Neogit <cr>", { desc = "Open Neogit" })
 vim.keymap.set('n', '<a-f1>', "<cmd> Copilot <cr>", { desc = "Start Copilot" })
-vim.keymap.set('x', 'p', 'p:let @+=@0<CR>:let @"=@0<CR>', { desc = "Start Copilot" })
+-- vim.keymap.set('x', 'p', 'p:let @+=@0<CR>:let @"=@0<CR>')
+vim.keymap.set('x', 'p', 'P')
 
 -- Luasnip
 local ls = require("luasnip")
@@ -64,14 +67,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gd', telescope.lsp_definitions, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gi', telescope.lsp_implementations, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<leader>ra', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gr', telescope.lsp_references, opts)
     vim.keymap.set('n', '<leader>fm', function()
       vim.lsp.buf.format { async = true }
     end, opts)
