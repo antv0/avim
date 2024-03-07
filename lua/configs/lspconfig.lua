@@ -20,10 +20,11 @@ local default = {
 local servers = {
   java_language_server = { cmd = {"java-language-server"} },
   ocamllsp = {},
-  -- "pyright",
+  pyright = {},
   lua_ls = {},
   clangd = {},
-  jedi_language_server = {},
+  ccls = {},
+  -- jedi_language_server = {},
   nixd = {},
   ltex = {
     settings = {
@@ -31,6 +32,9 @@ local servers = {
         language = "fr",
       },
     },
+  },
+  elixirls = {
+    cmd = { "elixir-ls" },
   }
 }
 
