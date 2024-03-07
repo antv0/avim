@@ -423,10 +423,10 @@ local plugins = {
       stages = "static",
     }
   },
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   event = "VeryLazy",
+  -- },
   {
     'smoka7/hop.nvim',
     version = "*",
