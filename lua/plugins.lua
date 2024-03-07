@@ -434,6 +434,52 @@ local plugins = {
       uppercase_labels = true,
     },
   },
+  {
+    'eandrju/cellular-automaton.nvim'
+  },
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- configuration goes here
+      --
+      lang = "c",
+      description = {
+        position = "right"
+      }
+    },
+  },
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = { 'mfussenegger/nvim-dap' },
+    config = function()
+      require("configs.dap")
+      require("dapui").setup()
+    end
+  },
+  {
+    'echasnovski/mini.align',
+    version = false,
+    opts = {
+      -- Module mappings. Use `''` (empty string) to disable one.
+      mappings = {
+        start_with_preview = 'ga',
+      },
+      options = {
+        justify_side = 'right',
+      },
+    },
+  }
 }
 
 return plugins

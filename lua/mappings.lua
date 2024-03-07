@@ -100,5 +100,16 @@ wk.register({
   ["<leader>fm"] = { function()
     vim.lsp.buf.format { async = true }
   end, "Format" },
-
 })
+
+-- DAP
+local dap = require('dap')
+local dapui = require('dapui')
+vim.keymap.set('n', '<leader>dc', dap.continue, { desc = "Continue" })
+vim.keymap.set('n', '<f5>', dap.continue, { desc = "Continue" })
+vim.keymap.set('n', '<leader>s', dap.step_into, { desc = "Step into" })
+vim.keymap.set('n', '<leader>n', dap.step_over, { desc = "Step over" })
+vim.keymap.set('n', '<leader>o', dap.step_out, { desc = "Step out" })
+vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+vim.keymap.set('n', '<f4>', dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+vim.keymap.set('n', '<leader>du', dapui.toggle, { desc = "Toggle UI" })
