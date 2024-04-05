@@ -35,7 +35,11 @@ local servers = {
   },
   elixirls = {
     cmd = { "elixir-ls" },
-  }
+  },
+  rust_analyzer = {},
+  glslls = {
+    cmd = { "glslls", "--target-env", "opengl", "--stdin" },
+  },
 }
 
 for server, config in pairs(servers) do
