@@ -21,6 +21,7 @@ local servers = {
   java_language_server = { cmd = {"java-language-server"} },
   ocamllsp = {},
   pyright = {},
+  basedpyright = {},
   lua_ls = {},
   clangd = {},
   ccls = {},
@@ -42,6 +43,8 @@ local servers = {
   },
 }
 
+local enabled = {}
+
 for server, config in pairs(servers) do
   local lsp = require("lspconfig")[server]
     
@@ -49,10 +52,29 @@ for server, config in pairs(servers) do
   local config = vim.tbl_deep_extend("keep", config, default, lsp.document_config.default_config)
   if config.cmd ~= nil then
     if vim.fn.executable(config.cmd[1]) == 1 then
-      lsp.setup(config)
+      table.insert(enabled, server)
     end
   end
 end
+
+-- disable pyright if besedpyright is enabled
+for _, server in pairs(enabled) do
+  if server == "basedpyright" then
+    for i, s in ipairs(enabled) do
+      if s == "pyright" then
+        table.remove(enabled, i)
+        break
+      end
+    end
+  end
+end
+
+for _, server in pairs(enabled) do
+  local lsp = require("lspconfig")[server]
+  local config = servers[server]
+  lsp.setup(config)
+end
+
 
 vim.diagnostic.config({
   virtual_text = false,
